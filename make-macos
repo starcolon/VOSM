@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Building VOSM for MacOS!"
+echo "------------------------"
+mkdir build
+cd build
+cmake -DCMAKE_CXX_COMPILER=$(which g++) ..
+
+make
