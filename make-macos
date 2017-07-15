@@ -4,6 +4,8 @@ echo "Building VOSM for MacOS!"
 echo "------------------------"
 mkdir build
 cd build
-cmake -DCMAKE_CXX_COMPILER=$(which g++) ..
+
+# Make with cpp, with all accessible variables printed out
+cmake -DCMAKE_CXX_COMPILER=$(which g++) -LAH ..
 
 make
