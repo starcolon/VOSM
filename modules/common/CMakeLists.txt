@@ -15,9 +15,10 @@ file(GLOB INSTALL_HEADERS
 )
 
 if (UNIX)
-  target_link_libraries(common_shared ${BOOST_FILESYSTEM_LIB} 
-                                      ${BOOST_REGEX_LIB}
-                                      ${BOOST_SYSTEM_LIB})
+  target_link_libraries(common_shared 
+    ${BOOST_FILESYSTEM_LIB} 
+    ${BOOST_REGEX_LIB}
+    ${BOOST_SYSTEM_LIB})
 endif (UNIX)
 
 install(TARGETS common_shared DESTINATION lib)

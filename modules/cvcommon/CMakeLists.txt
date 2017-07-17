@@ -9,15 +9,24 @@ set_target_properties(cvcommon_shared PROPERTIES OUTPUT_NAME "vosm_cvcommon")
 get_target_property(OUTPUT_NAME cvcommon_shared OUTPUT_NAME)
 message(STATUS "Shared library outname:" ${OUTPUT_NAME})
 
-if (UNIX)
-target_link_libraries(cvcommon_shared ${OPENCV_CORE_LIB}
-                                      ${OPENCV_IMGPROC_LIB}
-                                      ${OPENCV_HIGHGUI_LIB}
-                                      ${OPENCV_FEATURES2D_LIB})
-endif (UNIX)
-
 file(GLOB INSTALL_HEADERS
     "include/*.h"
 )
+
+if (UNIX)
+  target_link_libraries(cvcommon_shared 
+  	opencv_core
+    opencv_imgproc
+    opencv_highgui
+    opencv_features2d
+    opencv_xfeatures2d
+    opencv_objdetect
+    opencv_xobjdetect
+    opencv_tracking
+    opencv_ml
+    opencv_face
+    opencv_optflow)
+endif (UNIX)
+
 install(TARGETS cvcommon_shared DESTINATION lib)
 install(FILES ${INSTALL_HEADERS} DESTINATION include/vosm)
