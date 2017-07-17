@@ -2,10 +2,14 @@
 
 echo "Building VOSM for MacOS!"
 echo "------------------------"
+echo "CAVEAT: Please make sure your Boost library is C++11 compatible."
 mkdir build
 cd build
 
 # Make with cpp, with all accessible variables printed out
-cmake -DCMAKE_CXX_COMPILER=$(which g++) -LAH ..
+cmake -DCMAKE_CXX_COMPILER=$(which g++) \
+      -DCMAKE_CXX_FLAGS="-std=c++0x" \
+      -DCMAKE_EXE_LINKER_FLAGS="-std=c++11 -Wl" \
+      -LAH ..
 
 make
