@@ -13,5 +13,12 @@ message(STATUS "Shared library outname:" ${OUTPUT_NAME})
 file(GLOB INSTALL_HEADERS
     "include/*.h"
 )
+
+if (UNIX)
+  target_link_libraries(common_shared ${BOOST_FILESYSTEM_LIB} 
+                                      ${BOOST_REGEX_LIB}
+                                      ${BOOST_SYSTEM_LIB})
+endif (UNIX)
+
 install(TARGETS common_shared DESTINATION lib)
 install(FILES ${INSTALL_HEADERS} DESTINATION include/vosm)
