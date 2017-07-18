@@ -6,6 +6,7 @@ cmake_minimum_required(VERSION 2.8)
 # Add Include, Library path here
 include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
+link_directories("$ENV{OPENCV_DIR}/lib")
 
 # must go before the project command
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
@@ -29,8 +30,8 @@ find_library(BOOST_SYSTEM_LIB boost_system $ENV{BOOST_SYSTEM_LIB})
 #find_library(OPENCV_OBJDETECT_LIB opencv_objdetect $ENV{OPENCV_OBJDETECT_LIB})
 #find_library(OPENCV_IMGPROC_LIB opencv_imgproc $ENV{OPENCV_ML_LIB})
 find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
 
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 add_subdirectory(modules)
 add_subdirectory(samples)

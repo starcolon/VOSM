@@ -25,7 +25,9 @@ if (UNIX)
     opencv_tracking
     opencv_ml
     opencv_face
-    opencv_optflow)
+    opencv_optflow
+    opencv_ccalib
+    opencv_calib3d)
 endif (UNIX)
 
 install(TARGETS cvcommon_shared DESTINATION lib)

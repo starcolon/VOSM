@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# This script is crafted specicially for the system which:
+# - Running MacOS 10.8 or later
+# - Having OpenCV 3.x installed
+# - Having Boost installed with C++0x support
+
 echo "Building VOSM for MacOS!"
 echo "------------------------"
-echo "CAVEAT: Please make sure your Boost library is C++11 compatible."
 mkdir build
 cd build
 
